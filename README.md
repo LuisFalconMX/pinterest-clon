@@ -13,5 +13,5 @@
 <br>
 
 <p align="center">
-  <img src="" />
+  <img src="https://raw.githubusercontent.com/luisfalconmx/pinterest-clon/main/docs/images/pinterest-clon-cover.png" />
 </p>
