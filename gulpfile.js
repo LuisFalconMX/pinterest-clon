@@ -2,6 +2,7 @@ const gulp = require('gulp')
 const rename = require('gulp-rename')
 const clean = require('gulp-clean')
 const postcss = require('gulp-postcss')
+const postcssEasyImport = require('postcss-easy-import')
 const autoprefixer = require('autoprefixer')
 const sugarss = require('sugarss')
 const pug = require('gulp-pug')
@@ -13,6 +14,7 @@ gulp.task('compile:postcss', () => {
   return gulp
     .src('./src/styles/index.sss')
     .pipe(postcss([
+      postcssEasyImport(),
       autoprefixer(),
     ],
     { parser: sugarss }
@@ -56,7 +58,7 @@ gulp.task('server', () => {
     }
   })
 
-  gulp.watch('./src/styles/**/*.css', gulp.series(['compile:postcss'])).on('change', reload)
+  gulp.watch('./src/styles/**/*.sss', gulp.series(['compile:postcss'])).on('change', reload)
   gulp.watch('./src/views/**/*.pug', gulp.series(['compile:pug'])).on('change', reload)
 })
 
