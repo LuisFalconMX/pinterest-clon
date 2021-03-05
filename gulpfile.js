@@ -5,7 +5,9 @@ const postcss = require('gulp-postcss')
 const postcssEasyImport = require('postcss-easy-import')
 const autoprefixer = require('autoprefixer')
 const sugarss = require('sugarss')
+const cleanCSS = require('gulp-clean-css');
 const pug = require('gulp-pug')
+const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
 const imagemin = require('gulp-imagemin')
@@ -51,6 +53,20 @@ gulp.task('clean:dist', () => {
     .pipe(clean())
 })
 
+gulp.task('optimize:css', () => {
+  return gulp
+    .src('./dist/**/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./dist/'))
+})
+
+gulp.task('optimize:html', () => {
+  return gulp
+    .src('./dist/**/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('./dist/'))
+})
+
 gulp.task('server', () => {
   browserSync.init({
     server: {
@@ -63,3 +79,4 @@ gulp.task('server', () => {
 })
 
 gulp.task('dev', gulp.series(['create:dist', 'clean:dist', 'compile:postcss', 'compile:pug', 'compile:images', 'server']))
+gulp.task('build', gulp.series(['create:dist', 'clean:dist', 'compile:postcss', 'compile:pug', 'compile:images', 'optimize:css', 'optimize:html']));
