@@ -1,16 +1,21 @@
 const gulp = require('gulp')
+const rename = require('gulp-rename')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
+const sugarss = require('sugarss')
 const pug = require('gulp-pug')
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
 gulp.task('compile:css', () => {
   return gulp
-    .src('./src/styles/index.css')
+    .src('./src/styles/index.sss')
     .pipe(postcss([
       autoprefixer(),
-    ]))
+    ],
+    { parser: sugarss }
+    ))
+    .pipe(rename({ extname: '.css' }))
     .pipe(gulp.dest('./dist'))
 })
 
