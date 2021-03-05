@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/luisfalconmx/pinterest-clon/issues"
   },
-  "homepage": "https://github.com/luisfalconmx/pinterest-clon#readme"
+  "homepage": "https://github.com/luisfalconmx/pinterest-clon#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0"
+  }
 }
