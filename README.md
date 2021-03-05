@@ -1,5 +1,9 @@
 <h1 align="center">Pinterest Clon</h1>
 
+<p align="center">
+Pinterest clone layout as a practical frontend exercise
+</p>
+
 <br>
 
 <p align="center">
