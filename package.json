@@ -1,8 +1,8 @@
 {
   "name": "pinterest-clon",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Pinterest clone layout as a practical frontend exercise",
+  "main": "gulpfile.js",
   "engines": {
     "node": ">=14.15.4",
     "npm": ">=7.5.4"
@@ -16,9 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/luisfalconmx/pinterest-clon.git"
   },
-  "keywords": [],
+  "keywords": ["gulp", "npm", "postcss", "pug", "exercise", "sugarss", "practice-project", "learning-project"],
   "author": "luisfalconmx",
-  "license": "MiT",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/luisfalconmx/pinterest-clon/issues"
   },
